@@ -31,7 +31,9 @@ public class ChatroomServerApp {
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             ChannelFuture channelFuture = serverBootstrap.bind(8888).sync();
+            System.out.println("channelFuture = " + channelFuture);
             channelFuture.channel().closeFuture().sync();
+            System.out.println("channelFuture = " + channelFuture);
         } finally {
             bossGroup.shutdownGracefully();
             workGroup.shutdownGracefully();
